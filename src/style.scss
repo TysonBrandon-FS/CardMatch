@@ -1,0 +1,59 @@
+$bg-color: black;
+$text-color: white;
+$card-width: 100px;
+$placeholder-width: 110px;
+$placeholder-height: 150px;
+$placeholder-font-size: 90px;
+
+
+@mixin flex-container($direction, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  @include flex-container(column);
+}
+
+#card-container {
+  @include flex-container(row);
+}
+
+.face-down-cards {
+  width: $card-width;
+}
+
+#game-info {
+  @include flex-container(row);
+}
+
+#game-button {
+  margin: 40px;
+}
+
+button {
+  margin: 20px;
+}
+
+
+%placeholder-style {
+  background-color: $text-color;
+  width: $placeholder-width;
+  height: $placeholder-height;
+  color: $bg-color;
+  font-size: $placeholder-font-size;
+  text-align: center;
+}
+
+#placeholderLeft {
+  @extend %placeholder-style;
+}
+
+#placeholderRight {
+  @extend %placeholder-style;
+}
